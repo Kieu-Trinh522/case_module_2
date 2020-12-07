@@ -18,7 +18,7 @@
     <a class="navbar-brand" href="location:index1.php">
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="/Case/img/logo.png" width="80" height="80" alt="">
+                <img src="/Case/img/logo2.png" width="80" height="80" alt="">
             </a>
         </nav>
     </a>
@@ -71,22 +71,22 @@
                     <input name="name" value="<?php echo $customer->getCustomerName()?>" type="text" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Quantity</label>
+                    <label for="exampleFormControlSelect1">Contact Title</label>
                     <input name="contact" value="<?php echo $customer->getContactTitle()?>" type="text" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect2">Unit Price</label>
-                    <input name="address" value="<?php echo $customer->getAddress()?>" type="number" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlSelect2">Address</label>
+                    <input name="address" value="<?php echo $customer->getAddress()?>" type="text" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Author</label>
+                    <label for="exampleFormControlTextarea1">City</label>
                     <input name="city" value="<?php echo $customer->getCity()?>" type="text" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Image</label>
-                    <input name="phone" value="<?php echo $customer->getPhone()?>" type="file" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlTextarea1">Phone</label>
+                    <input name="phone" value="<?php echo $customer->getPhone()?>" type="text" class="form-control" id="exampleFormControlInput1">
                 </div>
-                <input type="submit" value="EDIT">
+                <input class="btn btn-success" type="submit" value="EDIT">
             </form>
 
         </div>

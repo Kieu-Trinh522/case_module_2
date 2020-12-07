@@ -34,13 +34,13 @@
     </button>
     <div class="header-breadcrumbs background-menu-homepage" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
+            <li class="nav-item">
+                <a class="nav-link" href="index1.php?page=list">
                     <ion-icon name="notifications-outline"></ion-icon>
                     Book <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Customer</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="index1.php?page=view-customer">Customer</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Order</a>
@@ -62,44 +62,39 @@
 <div class="container">
     <div class="card mt-5">
         <div class="card-header">
-            Add book
+            Add Customer
         </div>
         <div class="card-body">
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Name</label>
-                    <input name="name" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Quantity</label>
-                    <input name="quantity" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect2">Unit Price</label>
-                    <input name="unitPrice" type="number" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Author</label>
-                    <input name="author" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Category</label>
-                    <select name="category" class="form-control ">
-                        <?php foreach ($categories as $category): ?>
-                            <option value="<?php echo $category->getId() ?>"><?php echo $category->getCategoryName() ?></option>
-                        <?php endforeach;?>
+                    <label for="exampleFormControlInput1">Customer Name</label>
+                    <select name="name" id="">
+                        <?php foreach ($customers as $customer):?>
+                            <option value="<?php echo $customer->getId() ?>"><?php echo $customer->getCustomerName() ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group ">
-                    <label for="exampleFormControlTextarea1">Image</label>
-                    <input name="image" type="file" required="required" class="form-control " id="exampleFormControlInput1">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Order Date</label>
+                    <input name="order" type="date" class="form-control" id="exampleFormControlInput1">
                 </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Required Date</label>
+                    <input name="required" type="date" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Shipped Date</label>
+                    <input name="shipped" type="date" class="form-control" id="exampleFormControlInput1">
+                </div>
+
                 <input class="btn btn-success" type="submit" value="ADD">
             </form>
 
         </div>
     </div>
 </div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

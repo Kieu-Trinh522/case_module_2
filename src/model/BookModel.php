@@ -28,6 +28,22 @@ class BookModel
         return $array;
     }
 
+    public function getBookByCategory($cat)
+    {
+        $sql = "SELECT * FROM books WHERE category_id=:category_id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':category_id',$cat);
+        $stmt->execute();
+        $data = $stmt->fetchAll();
+        $array = [];
+        foreach ($data as $item) {
+            $book = new Books($item['book_name'], $item['quantity'], $item['unit_price'], $item['author'], $item['category_name'], $item['image']);
+            $book->setBookId($item['book_id']);
+            array_push($array, $book);
+        }
+        return $array;
+    }
+
     public function addBook($book)
     {
         $sql="INSERT INTO `books`(`book_name`, `quantity`, `unit_price`, `author`, `category_id`, `image`) VALUES (:book_name,:quantity,:unit_price,:author,:category_id,:image)";

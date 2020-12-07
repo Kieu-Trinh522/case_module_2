@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index1.php">
                 <img src="/Case/img/logo2.png" width="80" height="80" alt="">
             </a>
         </nav>
@@ -34,64 +34,53 @@
     </button>
     <div class="header-breadcrumbs background-menu-homepage" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index1.php?page=list">
                     <ion-icon name="notifications-outline"></ion-icon>
                     Book <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index1.php?page=view-customer">Customer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Order</a>
+                <a class="nav-link" href="index1.php?page=view-order">Order</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">login</a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="container">
-    <div class="card mt-5">
-        <div class="card-header">
-            Add Customer
-        </div>
-        <div class="card-body">
-            <form method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Name</label>
-                    <input name="name" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Contact title</label>
-                    <input name="contactTitle" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect2">Address</label>
-                    <input name="address" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">City</label>
-                    <input name="city" type="text" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Phone</label>
-                    <input name="phone" type="number" required="required" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <input class="btn btn-success" type="submit" value="ADD">
-            </form>
+<div style="  color: #9E41CC;">
+    <table class="table" style="margin-top: 1rem;padding: 8px;border: 2px solid;border-radius: 10px;overflow: hidden;border-top: 1px solid">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">ORDER_ID</th>
+            <th scope="col">BOOK NAME</th>
+            <th scope="col">UNIT PRICE</th>
+            <th scope="col">QUANTITY</th>
+            <th scope="col">DISCOUNT</th>
+            <th scope="col">SHIPPER</th>
+        </tr>
+        </thead>
+        <?php foreach ($orderDetails as $key => $orderDetail): ?>
+            <tr>
+                <td><?php echo ++$key ?></td>
+                <td ><?php echo $orderDetail->getOrderId() ?></td>
+                <td><?php echo $orderDetail->getBookId() ?></td>
+                <td ><?php echo $orderDetail->getUnitPrice() ?></td>
+                <td ><?php echo $orderDetail->getQuantity() ?></td>
+                <td ><?php echo $orderDetail->getDiscount() ?></td>
+                <td><?php echo $orderDetail->getShipperId() ?></td>
 
-        </div>
-    </div>
+            </tr>
+        <?php endforeach; ?>
+
+    </table>
+    <a href="index1.php?page=view-order" class="btn btn-success">Back</a>
 </div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

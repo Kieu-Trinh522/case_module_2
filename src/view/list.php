@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index1.php">
                 <img src="/Case/img/logo2.png" width="80" height="80" alt="">
             </a>
         </nav>
@@ -35,7 +35,7 @@
     <div class="header-breadcrumbs background-menu-homepage" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="index1.php">
+                <a class="nav-link" href="index1.php?page=list">
                     <ion-icon name="notifications-outline"></ion-icon>
                     Book <span class="sr-only">(current)</span></a>
             </li>
@@ -43,7 +43,7 @@
                 <a class="nav-link" href="index1.php?page=view-customer">Customer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Order</a>
+                <a class="nav-link" href="index1.php?page=view-order">Order</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="#">login</a>
@@ -51,10 +51,10 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+<div >
     <a class="btn btn-success" href="index1.php?page=add">ADD</a>
 
-    <table class="table">
+    <table class="table" style="margin-top: 1rem;padding: 8px;border: 2px solid;border-radius: 10px;overflow: hidden;border-top: 1px solid">
         <thead class="thead-dark">
         <tr>
             <th scope="col">BOOK ID</th>

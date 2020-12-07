@@ -62,8 +62,16 @@ class CustomerModel
         $stmt->bindParam(':address',$customer->getAddress());
         $stmt->bindParam(':city',$customer->getCity());
         $stmt->bindParam(':phone',$customer->getPhone());
-        $stmt->bindParam(":customer_id",$_id);
+        $stmt->bindParam(':customer_id',$_id);
         $stmt->execute();
 
+    }
+
+    public function deleteCustomer($id)
+    {
+        $sql='DELETE FROM customers WHERE customer_id=:customer_id';
+        $stmt=$this->database->prepare($sql);
+        $stmt->bindParam(':customer_id',$id);
+        $stmt->execute();
     }
 }

@@ -34,66 +34,52 @@
     </button>
     <div class="header-breadcrumbs background-menu-homepage" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index1.php?page=list">
                     <ion-icon name="notifications-outline"></ion-icon>
                     Book <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index1.php?page=view-customer">Customer</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index1.php?page=view-order">Order</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">login</a>
             </li>
         </ul>
     </div>
 </nav>
 <div>
-    <a class="btn btn-success" href="index1.php?page=add-Customer">ADD</a>
     <table class="table" style="margin-top: 1rem;padding: 8px;border: 2px solid;border-radius: 10px;overflow: hidden;border-top: 1px solid">
         <thead class="thead-dark">
+        <a href="index1.php?page=add-order">ADD</a>
         <tr>
             <th scope="col">STT</th>
-            <th scope="col">NAME</th>
-            <th scope="col">CONTACT TITLE</th>
-            <th scope="col">ADDRESS</th>
-            <th scope="col">CITY</th>
-            <th scope="col">PHONE</th>
-            <th scope="col" colspan="2">ACTION</th>
+            <th scope="col">CUSTOMER</th>
+            <th scope="col">ORDER DATE</th>
+            <th scope="col">REQUIRED DATE</th>
+            <th scope="col">SHIPPED DATE</th>
+            <th>ACTION</th>
         </tr>
         </thead>
-        <?php foreach ($customers as $key => $customer): ?>
+        <?php foreach ($orders as $key => $order): ?>
             <tr>
                 <td class="table-active"><?php echo ++$key ?></td>
-                <td class="table-primary"><?php echo $customer->getCustomerName() ?></td>
-                <td class="table-secondary"><?php echo $customer->getContactTitle() ?></td>
-                <td class="table-success"><?php echo $customer->getAddress() ?></td>
-                <td class="table-danger"><?php echo $customer->getCity() ?></td>
-                <td class="table-warning"><?php echo $customer->getPhone() ?></td>
-                <td class="table-info">
-                    <a class="btn btn-success" href="index1.php?page=edit-customer&id=<?php echo $customer->getId() ?>"><svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                        </svg></a>
-                </td>
-                <td class="table-info">
-                    <a class="btn btn-danger"
-                       href="index1.php?page=delete-customer&id=<?php echo $customer->getId() ?>"><svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg></a>
-                </td>
+                <td class="table-primary"><?php echo $order->getCustomerId() ?></td>
+                <td class="table-secondary"><?php echo $order->getOrderDate() ?></td>
+                <td class="table-success"><?php echo $order->getRequiredDate() ?></td>
+                <td class="table-danger"><?php echo $order->getShippedDate() ?></td>
+                <td><a href="index1.php?page=list-orderDetail&id=<?php echo $order->getId()?>">
+                    <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                        <path fill-rule="evenodd"
+                              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                    </svg>
+                </a></td>
             </tr>
         <?php endforeach; ?>
     </table>

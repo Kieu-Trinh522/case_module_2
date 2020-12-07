@@ -20,6 +20,7 @@ class BookController
     public function index()
     {
         $categories= $this->categoryModel->getCategory();
+        $books=$this->bookModel->getAll();
         include_once "homepage.php";
     }
 
@@ -52,7 +53,7 @@ class BookController
 
             $book = new Books($bookName, $quantity, $unitPrice, $author, $category, $image);
             $this->bookModel->addBook($book);
-            header('location:index1.php');
+            header('location:index1.php?page=list');
         }
     }
 
@@ -86,7 +87,7 @@ class BookController
 
             $newBook = new Books($bookName, $quantity, $unitPrice, $author, $category, $image);
             $this->bookModel->editBook($newBook,$id);
-            header('location:index1.php');
+            header('location:index1.php?page=list');
         }
     }
 
@@ -94,6 +95,14 @@ class BookController
     {
         $id=$_REQUEST['id'];
         $this->bookModel->deleteBook($id);
-        header('location:index1.php');
+        header('location:index1.php?page=list');
+    }
+
+    public function getBookByCategory()
+    {
+        $cat=$_REQUEST['category'];
+        $books=$this->bookModel->getBookByCategory($cat);
+        $categories=$this->categoryModel->getCategory();
+        include_once "homepage.php";
     }
 }

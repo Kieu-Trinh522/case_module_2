@@ -41,18 +41,29 @@ class CustomerController
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == "GET") {
-            $id=$_REQUEST['customer_id'];
-            include_once 'src/view/addCustomer.php';
+            $id=$_REQUEST['id'];
+            $customer=$this->customerModel->getCustomerById($id);
+            include_once 'src/view/editCustomer.php';
         } else {
-            $id=$_REQUEST['customer_id'];
+            $id=$_REQUEST['id'];
+            $customer=$this->customerModel->getCustomerById($id);
             $customerName=$_REQUEST['name'];
-            $contactTitle=$_REQUEST['contactTitle'];
+            $contactTitle=$_REQUEST['contact'];
             $address=$_REQUEST['address'];
             $city=$_REQUEST['city'];
             $phone=$_REQUEST['phone'];
             $newCustomer= new Customer($customerName,$contactTitle,$address,$city,$phone);
+//            var_dump($newCustomer);
+//            die();
             $this->customerModel->editCustomer($newCustomer,$id);
             header('location:index1.php?page=view-customer');
         }
+    }
+
+    public function delete()
+    {
+        $id=$_REQUEST['id'];
+        $this->customerModel->deleteCustomer($id);
+        header('location:index1.php?page=view-customer');
     }
 }
